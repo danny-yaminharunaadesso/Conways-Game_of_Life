@@ -6,7 +6,7 @@ public class Playground {
 	private int xSize;
 	private int ySize;
 	
-	private Cell[][] cellMap = new Cell[10][10];
+	private Cell[][] cellMap = new Cell[xSize][ySize];
 	
 	public Playground(int xSize, int ySize) {
 		this.xSize = xSize;
