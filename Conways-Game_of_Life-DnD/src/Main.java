@@ -5,9 +5,7 @@ public class Main {
 		Controller controller = new Controller();
 		
 		controller.startDefaultVales();
-		System.out.println("lalalla");
 
-		System.out.println("lalalla");
 }
 
 }
