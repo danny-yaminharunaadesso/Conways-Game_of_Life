@@ -1,16 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Playground {
 
 	private int xSize;
 	private int ySize;
 	
-	private Cell[][] cellMap = new Cell[xSize][ySize];
+	private Cell[][] cellMap;
 	
 	public Playground(int xSize, int ySize) {
 		this.xSize = xSize;
 		this.ySize = ySize;
+		cellMap = new Cell[xSize][ySize];
 	}
 	
 	public int getXSize() {
