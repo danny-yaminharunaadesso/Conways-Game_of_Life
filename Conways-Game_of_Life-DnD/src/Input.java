@@ -6,37 +6,32 @@ public class Input {
 	   public int getXWayDefaultValue() {
 			System.out.println("Willkommen bei Conway´s Game of Life \r\n"
 					+ "Bitte geben Sie ein Feld in X-Richtung ein.");
-			int xWayDefaultValue = getValidInput(scannerDefaultValues);
-			return xWayDefaultValue;
+			return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getYWayDefaultValue() {
 			System.out.println("Bitte geben Sie ein Feld in Y-Richtung ein.");
-			int yWayDefaultValue = getValidInput(scannerDefaultValues);
-			return yWayDefaultValue;
+			return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getCellDefaultValue() {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
-			int cellDefaultValue = getValidInput(scannerDefaultValues);
-			return cellDefaultValue;
+			return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getSecGenDefaultValue() {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
-			int secGenDefaultValue = getValidInput(scannerDefaultValues);
-			return secGenDefaultValue;
+			return getValidInput(scannerDefaultValues);
 	   }
 		
 	   private int getValidInput(Scanner scanner) {
 	        int value = 0;
-	        boolean valid = false;
  
-	        while (!valid) {
+	        while (true) {
 	            if (scanner.hasNextInt()) {
 	                value = scanner.nextInt();
 	                if (value >= 1) {
-	                    valid = true;
+	                    break;
 	                } else {
 	                    System.out.println("Fehler: Die Zahl muss größer als 0 sein. Versuchen Sie es erneut.");
 	                }
