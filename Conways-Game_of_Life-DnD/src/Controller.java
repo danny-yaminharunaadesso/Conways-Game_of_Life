@@ -12,6 +12,7 @@ public class Controller {
 		cellLogic.fillCellMap(playground.getCellMap());
 		cellLogic.setTwentyCellsAlive(playground.getCellMap());
 		cellLogic.printCellAlife(playground.getCellMap());
+		playgroundLogic.printPlayground(playground.getCellMap());
 	}
 	
 }
