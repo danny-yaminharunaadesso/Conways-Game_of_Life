@@ -28,8 +28,8 @@ public class CellLogic {
 		for (int i = 0; i < 20; i++) {
 			
 			while (true) {
-				y = random.nextInt(0,cellMap.length);
-				x = random.nextInt(0,cellMap[0].length);
+				y = random.nextInt(0,cellMap.length - 1);
+				x = random.nextInt(0,cellMap[0].length - 1);
 				
 				if (!cellMap[x][y].getLife()) {
 					break;
