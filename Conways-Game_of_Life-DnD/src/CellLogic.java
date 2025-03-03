@@ -4,7 +4,7 @@ public class CellLogic {
 	
 	Random random = new Random();
 	
-	public void fillCellMap(Cell[][] cellMap) {
+	public void fillCellMap(Cell[][] cellMap) { //befüllt die cellMap mit nicht lebenden Zellen
 		for (int x = 0; x < cellMap.length; x++) {
 			for (int y = 0; y < cellMap[0].length; y++) {
 				cellMap[x][y] = new Cell(false);
@@ -12,16 +12,20 @@ public class CellLogic {
 		}
 	}
 	
-	public void printCellAlife (Cell[][] cellMap) {
+	public void printCellAlife (Cell[][] cellMap) { // printet true oder false als spielfeld
 		for (int x = 0; x < cellMap.length; x++) {
 			for (int y = 0; y < cellMap[0].length; y++) {
-				System.out.print(cellMap[x][y].getLife());
+				if (cellMap[x][y].getLife()) {
+					System.out.print(" X ");
+				} else {
+					System.out.print("   ");
+				}
 			}
 			System.out.println();
 		}
 	}
 	
-	public void setTwentyCellsAlive(Cell[][] cellMap) {
+	public void setTwentyCellsAlive(Cell[][] cellMap) { // setzt 20 zufällige Zelen auf lebend
 		int x = 0;
 		int y = 0;
 		
@@ -42,84 +46,64 @@ public class CellLogic {
 		
 	}
 	
-	public void countCellNeighbours(Cell[][] cellMap) {
+	public void countCellNeighbours(Cell[][] cellMap) { // zählt die Anzahl der Nachbarn, welche eine Zelle hat
 		int neighbours;
-		for (int x = 0; x < cellMap[0].length; x++) {
-			for (int y = 0; y < cellMap.length; y++) {
+		
+		for (int y = 0; y < cellMap.length; y++) {
+			for (int x = 0; x < cellMap[0].length; x++) {
 				neighbours = 0;
 						
 						// horizontal / vertikal
-						if (x < cellMap[0].length-1 && cellMap[x+1][y].getLife()) { // schauen ob rechts neben der Zelle eine Zelle lebt
-							neighbours++;
+						if (x < cellMap[0].length-1) { // schauen ob rechts neben der Zelle eine Zelle lebt
+							if (cellMap[y][x+1].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (x > 0 && cellMap[x-1][y].getLife()) { // schauen ob links neben der Zelle eine Zelle lebt
-							neighbours++;
+						if (x > 0) { // schauen ob links neben der Zelle eine Zelle lebt
+							if (cellMap[y][x-1].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (y > 0 && cellMap[x][y-1].getLife()) { // schauen ob über der Zelle eine Zelle lebt
-							neighbours++;
+						if (y > 0) { // schauen ob über der Zelle eine Zelle lebt
+							if (cellMap[y-1][x].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (y < cellMap.length-1 && cellMap[x][y+1].getLife()) { // schauen ob unter der Zelle eine Zelle lebt
-							neighbours++;
+						if (y < cellMap.length-1) { // schauen ob unter der Zelle eine Zelle lebt
+							if (cellMap[y+1][x].getLife()) {
+								neighbours++;
+							}
 						}
 						
 						// diagonal
-						if (x < cellMap[0].length-1 && y > 0 && cellMap[x+1][y-1].getLife()) { // schauen ob rechts oben eine Zelle ist
-							neighbours++;
+						if (x < cellMap[0].length-1 && y > 0) { // schauen ob rechts oben eine Zelle ist
+							if (cellMap[y-1][x+1].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (x > 0 && y > 0 && cellMap[x-1][y-1].getLife()) { // schauen ob links oben eine Zelle ist
-							neighbours++;
+						if (x > 0 && y > 0) { // schauen ob links oben eine Zelle ist
+							if (cellMap[y-1][x-1].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (x > 0 && y < cellMap.length-1 && cellMap[x-1][y+1].getLife()) { // schauen ob links unten eine Zelle ist
-							neighbours++;
+						if (x > 0 && y < cellMap.length-1) { // schauen ob links unten eine Zelle ist
+							if (cellMap[y+1][x-1].getLife()) {
+								neighbours++;
+							}
 						}
 						
-						if (x < cellMap[0].length-1 && y < cellMap.length-1 && cellMap[x+1][y+1].getLife()) { // schauen ob rechts unter der Zelle eine Zelle lebt
-							neighbours++;
+						if (x < cellMap[0].length-1 && y < cellMap.length-1) { // schauen ob rechts unter der Zelle eine Zelle lebt
+							if (cellMap[y+1][x+1].getLife()) {
+								neighbours++;	
+							}
 						}
 						
-						cellMap[x][y].setNeighbours(neighbours);
-			}
-		}
-	}
-	
-	public void setCellAlifeOrDead(int[][] coordinates) {
-		for (int x = 0; x < coordinates[0].length; x++) {
-			for (int y = 0; y < coordinates.length; y++) {
-			}
-		}
-	}
-	
-	public void twoOrLessNeighbours(Cell[][] cellMap) {
-		for (int x = 0; x < cellMap[0].length; x++) {
-			for (int y = 0; y < cellMap.length; y++) {
-				if (cellMap[x][y].getNeighbours() < 2) {
-					cellMap[x][y].setLife(false);
-				}
-			}
-		}
-	}
-	
-	public void moreThanThreeNeighbours(Cell[][] cellMap) {
-		for (int x = 0; x < cellMap[0].length; x++) {
-			for (int y = 0; y < cellMap.length; y++) {
-				if (cellMap[x][y].getNeighbours() > 3) {
-					cellMap[x][y].setLife(false);
-				}
-			}
-		}
-	}
-	
-	public void threeNeighbours(Cell[][] cellMap) {
-		for (int x = 0; x < cellMap[0].length; x++) {
-			for (int y = 0; y < cellMap.length; y++) {
-				if (cellMap[x][y].getNeighbours() == 3) {
-					cellMap[x][y].setLife(true);
-				}
+						cellMap[y][x].setNeighbours(neighbours);
 			}
 		}
 	}

@@ -4,11 +4,13 @@ public class Playground {
 	private int ySize;
 	
 	private Cell[][] cellMap;
+	private boolean[][] cellMapUpdated;
 	
 	public Playground(int xSize, int ySize) {
 		this.xSize = xSize;
 		this.ySize = ySize;
-		cellMap = new Cell[xSize][ySize];
+		cellMap = new Cell[ySize][xSize];
+		cellMapUpdated = new boolean[ySize][xSize];
 	}
 	
 	public int getXSize() {
@@ -21,6 +23,10 @@ public class Playground {
 	
 	public Cell[][] getCellMap() {
 		return this.cellMap;
+	}
+	
+	public boolean[][] getBooleanMap() {
+		return this.cellMapUpdated;
 	}
 	
 	public void setYSize(int ySize) {
