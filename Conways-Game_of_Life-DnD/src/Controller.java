@@ -8,21 +8,30 @@ public class Controller {
 	PlaygroundLogic playgroundLogic = new PlaygroundLogic();
 	
 	public void start() {
-		System.out.println(playground.getCellMap()[0].length);
+
 		cellLogic.fillCellMap(playground.getCellMap());
 		cellLogic.setTwentyCellsAlive(playground.getCellMap());
+		playgroundLogic.printPlayground(playground.getCellMap());
 
 
-		while (true) {
-			cellLogic.printCellAlife(playground.getCellMap());
-			cellLogic.countCellNeighbours(playground.getCellMap());
-			
-			cellLogic.twoOrLessNeighbours(playground.getCellMap());
-			cellLogic.moreThanThreeNeighbours(playground.getCellMap());
-			cellLogic.threeNeighbours(playground.getCellMap());
-			timer.waitSeconds();
-		}
-
-	}
+//		while (true) {
+//			cellLogic.printCellAlife(playground.getCellMap());
+//			cellLogic.countCellNeighbours(playground.getCellMap());
+//			
+//			cellLogic.twoOrLessNeighbours(playground.getCellMap());
+//			cellLogic.moreThanThreeNeighbours(playground.getCellMap());
+//			cellLogic.threeNeighbours(playground.getCellMap());
+//			timer.waitSeconds();
+//			
+//			
+//			playgroundLogic.printPlayground(playground.getCellMap());
+//			
+//		}
+//		
+//		
+//
+//
+//	}
 	
+}
 }

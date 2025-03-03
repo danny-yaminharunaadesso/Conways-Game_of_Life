@@ -8,7 +8,7 @@ public class Playground {
 	public Playground(int xSize, int ySize) {
 		this.xSize = xSize;
 		this.ySize = ySize;
-		cellMap = new Cell[xSize][ySize];
+		cellMap = new Cell[ySize][xSize];
 	}
 	
 	public int getXSize() {
