@@ -10,7 +10,9 @@ public class Playground {
 		this.xSize = xSize;
 		this.ySize = ySize;
 		cellMap = new Cell[ySize][xSize];
+
 		cellMapUpdated = new boolean[ySize][xSize];
+
 	}
 	
 	public int getXSize() {
