@@ -1,5 +1,5 @@
 import java.util.Random;
-
+ 
 public class CellLogic {
 	
 	Random random = new Random();
@@ -125,3 +125,4 @@ public class CellLogic {
 	}
 	
 }
+

@@ -12,6 +12,7 @@ public class Controller {
 		cellLogic.fillCellMap(playground.getCellMap());
 		cellLogic.setTwentyCellsAlive(playground.getCellMap());
 
+
 		while (true) {
 			cellLogic.printCellAlife(playground.getCellMap());
 			cellLogic.countCellNeighbours(playground.getCellMap());
@@ -21,6 +22,7 @@ public class Controller {
 			cellLogic.threeNeighbours(playground.getCellMap());
 			timer.waitSeconds();
 		}
+
 	}
 	
 }
