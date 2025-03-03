@@ -90,7 +90,6 @@ public class CellLogic {
 	public void setCellAlifeOrDead(int[][] coordinates) {
 		for (int x = 0; x < coordinates[0].length; x++) {
 			for (int y = 0; y < coordinates.length; y++) {
-				cell
 			}
 		}
 	}

@@ -11,6 +11,7 @@ public class Controller {
 		System.out.println(playground.getCellMap()[0].length);
 		cellLogic.fillCellMap(playground.getCellMap());
 		cellLogic.setTwentyCellsAlive(playground.getCellMap());
+
 		while (true) {
 			cellLogic.printCellAlife(playground.getCellMap());
 			cellLogic.countCellNeighbours(playground.getCellMap());
