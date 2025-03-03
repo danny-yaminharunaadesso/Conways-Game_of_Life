@@ -1,42 +1,44 @@
 import java.util.Scanner;
  
 public class Input {
+	
 	Scanner scannerDefaultValues = new Scanner (System.in);
 	
 	   public int getXWayDefaultValue() {
 			System.out.println("Willkommen bei Conway´s Game of Life \r\n"
 					+ "Bitte geben Sie ein Feld in X-Richtung ein.");
-			return getValidInput(scannerDefaultValues);
+		   return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getYWayDefaultValue() {
 			System.out.println("Bitte geben Sie ein Feld in Y-Richtung ein.");
-			return getValidInput(scannerDefaultValues);
+		   return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getCellDefaultValue() {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
-			return getValidInput(scannerDefaultValues);
+		   return getValidInput(scannerDefaultValues);
 	   }
 	   
 	   public int getSecGenDefaultValue() {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
-			return getValidInput(scannerDefaultValues);
+		   return getValidInput(scannerDefaultValues);
 	   }
 		
 	   private int getValidInput(Scanner scanner) {
 	        int value = 0;
+	        boolean valid = false;
  
-	        while (true) {
+	        while (!valid) {
 	            if (scanner.hasNextInt()) {
 	                value = scanner.nextInt();
 	                if (value >= 1) {
-	                    break;
+	                    valid = true;
 	                } else {
-	                    System.out.println("Fehler: Die Zahl muss größer als 0 sein. Versuchen Sie es erneut.");
+	                    System.out.println("Fehler: Die Zahl muss mindestens 1 sein! Versuche es erneut.");
 	                }
 	            } else {
-	                System.out.println("Fehler: Bitte geben Sie eine gültige Zahl ein.");
+	                System.out.println("Fehler: Bitte eine gültige ganze Zahl eingeben!");
 	                scanner.next();
 	            }
 	        }
@@ -49,5 +51,3 @@ public class Input {
 	   
 	   
 }
- 
- 
