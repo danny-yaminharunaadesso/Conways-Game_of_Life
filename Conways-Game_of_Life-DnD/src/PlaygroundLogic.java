@@ -1,68 +1,48 @@
-
 public class PlaygroundLogic {
 
-	Controller controller = new Controller();
 	
 	public void printPlayground(Cell [][] cellMap) {
 		
+		String GREEN = "\u001B[32m";
+		String GREY = "\u001B[90m";
+		String RESET = "\u001B[0m";
 		
-		int cellSizePlayground = 2;
+		int x1 = 0;
+		int y1 = 0;
+		String greenColor = "  ";
+		String greyColor = "  ";
+		
 
-		//erste X reihe
-		for (int x1 = 0; x1 < cellMap.length; x1++) { // X erste Linie
-			if (x1 == 0) {
-				System.out.print("-");
-			}
-			for (int e1 = 0; e1 < cellMap.length; e1++) { // die anzahl der Felder von Input
-				System.out.println("--");
-				if (e1 == cellMap.length) {	//X abschlusszeichen & neue Zeile
-					System.out.print("-");
-				}
-			}
-			System.out.println();
-		}
-		
-		// Y reihen die kommen
-		for (int y = 0; y < cellMap[0].length; y++) { // Y erstes Zeichen
-			System.out.print("|");
-			for (int f = 0; f < cellMap[0].length; f++) { // Y in X Leerzeichen
-				System.out.print("  ");
-				if (f == cellMap[0].length) {	//Y in X abschlusszeichen & neue Zeile
-					System.out.println("|");
-				}
-			}
-			System.out.println();
-		}
-		
-		
-		//letzte X reihe
-		for (int x2 = 0; x2 < cellMap.length; x2++) {
-			if (x2 == 0) {
-				System.out.print("-");
-			}
-			for (int e2 = 0; e2 < cellMap.length; e2++) {
+		for (int e1 = 0; e1 < 2; e1++) {																	// erstellt erste -& letzte Linie auf X-Achse
+			System.out.print("--");
+			for (x1 = 0; x1 < cellMap.length; x1++) {														// gibt zellen aus 1 Zelle entspricht "  "
 				System.out.print("--");
-				if (e2 == cellMap.length) {
-					System.out.print("-");
-				}
 			}
 			System.out.println();
+			if (e1 == 0) {
+				for (y1 = 0; y1 < cellMap.length; y1++) {													// erstellt alle Zeilen auf Y-Achse (von 0 bis Eingabe) die Zellen sind
+					System.out.print("|");
+					for (int f1 = 0; f1 < cellMap[0].length; f1++) {										// checkt das befüllte 2D-Array 
+						if (cellMap[f1][y1].getLife()) {
+							String greenBackground = "\u001B[42m" + greenColor + "\u001B[0m";				// alle "true" Zellen werden grün -> syso
+							System.out.print(greenBackground);
+						}else {
+							String greyBackground = "\u001B[48;5;250m" + greyColor + "\u001B[0m";			// alle "true" Zellen werden grau -> syso
+							System.out.print(greyBackground);
+						}
+						
+					}
+					System.out.print("|");
+					System.out.println();
+				}
+			}
+			
 		}
-		
-//		controller.input.getXWayDefaultValue()
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 	
 	
 }
+
+
+
