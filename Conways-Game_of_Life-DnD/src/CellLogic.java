@@ -25,7 +25,7 @@ public class CellLogic {
 		}
 	}
 	
-	public void setTwentyCellsAlive(Cell[][] cellMap) { // setzt 20 zufällige Zelen auf lebend
+	public void setTwentyCellsAlive(Cell[][] cellMap) { // setzt 20 zufällige ZelLen auf lebend
 		int x = 0;
 		int y = 0;
 		
@@ -102,7 +102,6 @@ public class CellLogic {
 								neighbours++;	
 							}
 						}
-						
 						cellMap[y][x].setNeighbours(neighbours);
 			}
 		}

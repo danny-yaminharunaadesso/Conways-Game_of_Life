@@ -50,7 +50,6 @@ public class Rules {
 				if (cellMap[y][x].getLife()) {
 					countAlife++;
 				}
-				
 			}
 		}
 		

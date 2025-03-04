@@ -3,14 +3,18 @@ public class Playground {
 	private int xSize;
 	private int ySize;
 	
+	private int generation;
+	
 	private Cell[][] cellMap;
 	private boolean[][] cellMapUpdated;
 	
 	public Playground(int xSize, int ySize) {
 		this.xSize = xSize;
 		this.ySize = ySize;
+		
+		generation = 1;
+		
 		cellMap = new Cell[ySize][xSize];
-
 		cellMapUpdated = new boolean[ySize][xSize];
 
 	}
@@ -21,6 +25,10 @@ public class Playground {
 	
 	public int getYSize() {
 		return this.ySize;
+	}
+	
+	public int getGeneration() {
+		return generation;
 	}
 	
 	public Cell[][] getCellMap() {
@@ -37,5 +45,9 @@ public class Playground {
 	
 	public void setXSize(int xSize) {
 		this.xSize = xSize;
+	}
+	
+	public void setGeneration(int generation) {
+		this.generation = generation;
 	}
 }
