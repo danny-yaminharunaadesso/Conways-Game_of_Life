@@ -6,10 +6,11 @@ public class Controller {
 	Rules rules = new Rules();
 
 	Playground playground = new Playground(input.getXWayDefaultValue(), input.getYWayDefaultValue());
-
+	StopandPause thread = new StopandPause();
 	PlaygroundLogic playgroundLogic = new PlaygroundLogic();
 
 	public void start() {
+		thread.start();
 		
 		cellLogic.fillCellMap(playground.getCellMap()); // befüllt die cellMap mit toten Zellen
 
@@ -43,6 +44,9 @@ public class Controller {
 			}
 			
 			timer.waitSeconds();
+				while(thread.getPause()) {
+					timer.waitSeconds();
+				}
 			
 		}
 		
