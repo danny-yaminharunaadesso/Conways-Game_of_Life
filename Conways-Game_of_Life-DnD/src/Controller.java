@@ -2,7 +2,7 @@ public class Controller {
 
 	Input input = new Input();
 	CellLogic cellLogic = new CellLogic();
-	Timer timer = new Timer(3);
+	Timer timer = new Timer(1);
 	Rules rules = new Rules();
 
 	Playground playground = new Playground(input.getXWayDefaultValue(), input.getYWayDefaultValue());
@@ -16,7 +16,6 @@ public class Controller {
 		cellLogic.fillCellMap(playground.getCellMap());
 
 		cellLogic.setTwentyCellsAlive(playground.getCellMap());
-		playgroundLogic.printPlayground(playground.getCellMap());
 
 		while (true) {
 			System.out.println("");
@@ -29,6 +28,13 @@ public class Controller {
 			rules.setCellAlifeOrDead(playground.getCellMap(), playground.getBooleanMap());
 			timer.waitSeconds();
 
+
+			
+			if (rules.endOfGame(playground.getCellMap())) {
+				playgroundLogic.printPlayground(playground.getCellMap());
+				break;
+			}
+			
 		}
 
 	}
