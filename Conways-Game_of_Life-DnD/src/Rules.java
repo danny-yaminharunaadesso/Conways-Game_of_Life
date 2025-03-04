@@ -1,13 +1,18 @@
 
 public class Rules {
 	
+	public int removedCells;
+	public int bornCells = 20;
+	
 	public void setCellAlifeOrDead(Cell[][] cellMap, boolean[][] booleanMap) {
 		for (int y = 0; y < cellMap.length; y++) {
 			for (int x = 0; x < cellMap[0].length; x++) {
-				if (booleanMap[y][x]) {
+				if (booleanMap[y][x] && !cellMap[y][x].getLife()) {
 					cellMap[y][x].setLife(true);
-				} else {
+					bornCells++;
+				} else if (!booleanMap[y][x] && cellMap[y][x].getLife()){
 					cellMap[y][x].setLife(false);
+					removedCells++;
 				}
 			}
 		}

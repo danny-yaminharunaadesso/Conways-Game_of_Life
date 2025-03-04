@@ -24,7 +24,7 @@ public class Input {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
 		   return getValidInput(scannerDefaultValues);
 	   }
-		
+	   
 	   private int getValidInput(Scanner scanner) {
 	        int value = 0;
 	        boolean valid = false;
@@ -42,7 +42,7 @@ public class Input {
 	                scanner.next();
 	            }
 	        }
- 
+	   
 	        return value;
 	    }
 }

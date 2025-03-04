@@ -1,5 +1,4 @@
 public class PlaygroundLogic {
-
 	
 	public void printPlayground(Cell [][] cellMap) {
 		
@@ -41,6 +40,12 @@ public class PlaygroundLogic {
 
 	}
 	
+	
+	public void printCellStats(int remvoedCells, int bornCells) {
+		System.out.println(" Zusammenfassung");
+		System.out.println(" Geborene Zellen: " + bornCells);
+		System.out.println(" Gestorbenee Zellen: " + remvoedCells);
+	}
 	
 }
 
