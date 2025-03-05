@@ -19,6 +19,11 @@ public class Controller {
 		thread.setPauseAt(input.getPauseAt());
 		
 		while (true) {
+			
+			while (thread.getPause()) {
+				timer.waitSeconds();
+			}
+			
 			System.out.println("\n");
 			
 			System.out.println(" Generation: " + playground.getGeneration());
@@ -47,18 +52,17 @@ public class Controller {
 				break;
 			}
 			
-			if (thread.getPauseAt() == playground.getGeneration()) {
-				thread.setPauseXGen(true);
+			if (playground.getGeneration() == thread.getPauseAt()) {
+				System.out.println("Ihre eingegebene Generation ist erreicht. Wie möchten Sie fortfahren?\n"
+						+ "[1] Spiel fortsetzen\n[2] Spiel beenden\n[3] nächste Pause\n");
+				
 				thread.setPause(true);
-				thread.setCrazyThreadThing(1);
+				
 			}
-			thread.setCrazyThreadThing(0);
+			
+			
+			
 			timer.waitSeconds();
-			
-				while(thread.getPause()) {
-					timer.waitSeconds();
-				}
-			
 		}
 		
 		playgroundLogic.printCellStats(rules.removedCells, rules.bornCells);
