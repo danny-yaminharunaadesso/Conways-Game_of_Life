@@ -57,9 +57,6 @@ private int pauseAt;
 		}
 	}
 	
-	
-	
-	
 	public int getPauseAt() {
 		return this.pauseAt;
 	}
@@ -81,3 +78,4 @@ private int pauseAt;
 		this.generation = generation;
 	}
 }
+

@@ -4,7 +4,7 @@ public class CellLogic {
 	
 	Random random = new Random();
 	
-	public void fillCellMap(Cell[][] cellMap) { //befüllt die cellMap mit nicht lebenden Zellen
+	public void fillCellMap(Cell[][] cellMap) { // befüllt die cellMap mit nicht lebenden Zellen
 		for (int x = 0; x < cellMap.length; x++) {
 			for (int y = 0; y < cellMap[0].length; y++) {
 				cellMap[x][y] = new Cell(false);
@@ -12,7 +12,7 @@ public class CellLogic {
 		}
 	}
 	
-	
+
 	public void setTwentyCellsAlive(Cell[][] cellMap) { // setzt 20 zufällige ZelLen auf lebend
 		int x = 0;
 		int y = 0;
