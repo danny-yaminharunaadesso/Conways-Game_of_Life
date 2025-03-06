@@ -17,7 +17,9 @@ public class Input {
 	   
 	   public int getPauseAt() {
 			System.out.println("Sie haben die Möglichkeit bei einer bestimmten Generation zu pausieren. \r\n"
-					+ "[0] Funktion nicht benötigt\n[>1] Pause");
+
+					+ "(0 = funktion nicht benötigt, größer als 1 = pause)");
+
 		   return getValidPauseInput(scannerDefaultValues);
 	   }
 	   

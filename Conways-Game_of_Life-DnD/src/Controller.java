@@ -30,6 +30,7 @@ public class Controller {
 			
 			playgroundLogic.printPlayground(playground.getCellMap()); // gibt das "Spielfeld" aus
 			
+
 			cellLogic.countCellNeighbours(playground.getCellMap()); // zählt die Nachbarn jeder Zelle
  
 			rules.twoOrLessNeighbours(playground.getCellMap(), playground.getBooleanMap()); // tötet Zelle, falls sie 2 oder weniger als 2 Nahcbarn hat
@@ -44,6 +45,8 @@ public class Controller {
 			
 			thread.setGeneration(playground.getGeneration()); // erhöht die Generation in Thread um 1 (wegen Pause bei bestimmter Generation)
 			
+			thread.setGeneration(playground.getGeneration());
+			
 			if (rules.endOfGame(playground.getCellMap())) {
 				playgroundLogic.printPlayground(playground.getCellMap()); // printed am Ende das Spielfeld nochmal aus
 				
@@ -53,6 +56,7 @@ public class Controller {
 			}
 			
 			if (playground.getGeneration() == thread.getPauseAt()) { // wenn Generation da ist wo Pause, werden optionen ausgegeben und pause in Thread auf True gesetzt
+
 				System.out.println("Ihre eingegebene Generation ist erreicht. Wie möchten Sie fortfahren?\n"
 						+ "[1] Spiel fortsetzen\n[2] Spiel beenden\n[3] nächste Pause\n");
 				
@@ -60,9 +64,8 @@ public class Controller {
 				
 			}
 			
-			
-			
 			timer.waitSeconds(); // wartet ...
+
 		}
 		
 		playgroundLogic.printCellStats(rules.removedCells, rules.bornCells); // Gibt aus, wie viele Zellen gestorben und geboren sind
