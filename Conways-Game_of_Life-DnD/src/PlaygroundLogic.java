@@ -41,6 +41,7 @@ public class PlaygroundLogic {
 	}
 	
 	
+	
 	public void printCellStats(int remvoedCells, int bornCells) {	//Zusammenfassung der Parameter -> syso
 		System.out.println(" Zusammenfassung");
 		System.out.println(" Geborene Zellen: " + bornCells);
