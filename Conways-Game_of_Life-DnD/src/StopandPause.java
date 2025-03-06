@@ -14,13 +14,13 @@ private int pauseAt;
 	@Override
 	public void run() {
 		
-		while (true) {
+		while (true) {	//gleichzeitig zu main wird die thread.run-Methode gestartet
 		
-			String choice = scanner.nextLine();
+			String choice = scanner.nextLine();	//Scanner bleibt aktiv und wartet auf input
 			
-			pause = true;
+			pause = true;	
 		
-			if (choice.equals("p") && pauseAt != generation) {
+			if (choice.equals("p") && pauseAt != generation) {	//Eingabe ist "p & kein Generationsstop" = beenden/fortsetzen
 				
 				System.out.println("Pause: \n[1] Spiel fortsetzen\n[2] Spiel beenden");
 				
@@ -33,22 +33,18 @@ private int pauseAt;
 					System.exit(0);
 				}
 			
-			} else if (choice.equals("1") || choice.equals("2") || choice.equals("3")) {
+			} else if (choice.equals("1") || choice.equals("2") || choice.equals("3")) {	//wenn der "Generationsstop" erreicht ist -> auswahl
 				if (choice.equals("1")) {
 					System.out.println("Spiel wird fortgesetzt.");
-				}
-				
-				if (choice.equals("2")) {
+				}else if (choice.equals("2")) {
 					System.out.println("Das Spiel wurde beendet.");
 					System.exit(0);
-				}
-			
-				if (choice.equals("3")) {
+				}else if (choice.equals("3")) {
 					int newPauseAt = 0;
 					
 					System.out.println("Zahl für Pause: ");
 					
-					while (newPauseAt <= generation && newPauseAt <= pauseAt) {
+					while (newPauseAt <= generation && newPauseAt <= pauseAt) {		//nächster "Generationsstop" muss größer sein als die jetzige Generation
 						newPauseAt = scanner.nextInt();
 					}
 					

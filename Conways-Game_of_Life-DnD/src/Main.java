@@ -7,7 +7,7 @@ public class Main {
 		
 		
 		
-		controller.start();
+		controller.start();	//Methode in Controller wird aufgerufen -> Game start
 	}
 
 }

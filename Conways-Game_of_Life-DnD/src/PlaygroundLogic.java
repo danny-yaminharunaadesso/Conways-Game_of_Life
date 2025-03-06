@@ -12,21 +12,21 @@ public class PlaygroundLogic {
 		String greyColor = "  ";
 		
 
-		for (int e1 = 0; e1 < 2; e1++) {																	// erstellt erste -& letzte Linie auf X-Achse
+		for (int e1 = 0; e1 < 2; e1++) {	// erstellt erste & letzte Linie auf X-Achse
 			System.out.print("  ");
-			for (x1 = 0; x1 < cellMap[0].length; x1++) {														// gibt zellen aus 1 Zelle entspricht "  "
+			for (x1 = 0; x1 < cellMap[0].length; x1++) {	// gibt zellen aus 1 Zelle entspricht "  "
 				System.out.print("  ");
 			}
 			System.out.println();
 			if (e1 == 0) {
-				for (y1 = 0; y1 < cellMap.length; y1++) {													// erstellt alle Zeilen auf Y-Achse (von 0 bis Eingabe) die Zellen sind
+				for (y1 = 0; y1 < cellMap.length; y1++) {	// erstellt alle Zeilen auf Y-Achse (von 0 bis Eingabe) die Zellen sind
 					System.out.print(" ");
-					for (int f1 = 0; f1 < cellMap[0].length; f1++) {										// checkt das befüllte 2D-Array 
+					for (int f1 = 0; f1 < cellMap[0].length; f1++) {	// checkt das befüllte 2D-Array 
 						if (cellMap[y1][f1].getLife()) {
-							String greenBackground = "\u001B[42m" + greenColor + "\u001B[0m";				// alle "true" Zellen werden grün -> syso
+							String greenBackground = "\u001B[42m" + greenColor + "\u001B[0m";	// alle "true" Zellen werden grün -> syso
 							System.out.print(greenBackground);
 						}else {
-							String greyBackground = "\u001B[48;5;250m" + greyColor + "\u001B[0m";			// alle "true" Zellen werden grau -> syso
+							String greyBackground = "\u001B[48;5;250m" + greyColor + "\u001B[0m";	// alle "false" Zellen werden grau -> syso
 							System.out.print(greyBackground);
 						}
 						
@@ -41,7 +41,7 @@ public class PlaygroundLogic {
 	}
 	
 	
-	public void printCellStats(int remvoedCells, int bornCells) {
+	public void printCellStats(int remvoedCells, int bornCells) {	//Zusammenfassung der Parameter -> syso
 		System.out.println(" Zusammenfassung");
 		System.out.println(" Geborene Zellen: " + bornCells);
 		System.out.println(" Gestorbenee Zellen: " + remvoedCells);
