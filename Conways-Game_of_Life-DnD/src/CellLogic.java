@@ -4,24 +4,11 @@ public class CellLogic {
 	
 	Random random = new Random();
 	
-	public void fillCellMap(Cell[][] cellMap) { //befüllt die cellMap mit nicht lebenden Zellen
+	public void fillCellMap(Cell[][] cellMap) { // befüllt die cellMap mit nicht lebenden Zellen
 		for (int x = 0; x < cellMap.length; x++) {
 			for (int y = 0; y < cellMap[0].length; y++) {
 				cellMap[x][y] = new Cell(false);
 			}
-		}
-	}
-	
-	public void printCellAlife (Cell[][] cellMap) { // printet true oder false als spielfeld
-		for (int x = 0; x < cellMap.length; x++) {
-			for (int y = 0; y < cellMap[0].length; y++) {
-				if (cellMap[x][y].getLife()) {
-					System.out.print(" X ");
-				} else {
-					System.out.print("   ");
-				}
-			}
-			System.out.println();
 		}
 	}
 	

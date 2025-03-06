@@ -15,6 +15,12 @@ public class Input {
 		   return getValidInput(scannerDefaultValues);
 	   }
 	   
+	   public int getPauseAt() {
+			System.out.println("Sie haben die Möglichkeit bei einer bestimmten Generation zu pausieren. \r\n"
+					+ "[0] Funktion nicht benötigt\n[>1] Pause");
+		   return getValidPauseInput(scannerDefaultValues);
+	   }
+	   
 	   public int getCellDefaultValue() {
 			System.out.println("Bitte geben Sie die zu Beginn Lebenden Zellen ein.");
 		   return getValidInput(scannerDefaultValues);
@@ -25,7 +31,7 @@ public class Input {
 		   return getValidInput(scannerDefaultValues);
 	   }
 	   
-	   private int getValidInput(Scanner scanner) {
+	   int getValidInput(Scanner scanner) {
 	        int value = 0;
 	        boolean valid = false;
  
@@ -45,4 +51,26 @@ public class Input {
 	   
 	        return value;
 	    }
+	   
+	   private int getValidPauseInput(Scanner scanner) {
+	        int value = 0;
+	        boolean valid = false;
+
+	        while (!valid) {
+	            if (scanner.hasNextInt()) {
+	                value = scanner.nextInt();
+	                if (value == 0 || value >= 1) {
+	                    valid = true;
+	                } else {
+	                    System.out.println("Fehler: Die Zahl muss mindestens 0 sein! Versuche es erneut.");
+	                }
+	            } else {
+	                System.out.println("Fehler: Bitte eine gültige ganze Zahl eingeben!");
+	                scanner.next();
+	            }
+	        }
+	   
+	        return value;
+	    }
+	   
 }

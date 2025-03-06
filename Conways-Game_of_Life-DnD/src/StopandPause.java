@@ -1,44 +1,84 @@
 import java.util.Scanner;
 
 public class StopandPause extends Thread {
-	boolean pause = false;
+private int pauseAt;
 	
-    @Override
-    public void run() {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            String input = scanner.nextLine();
-
-            if (input.equalsIgnoreCase("p")) {
-                System.out.println("Sie haben Conway´s Game of Life pausiert. Wie möchten Sie fortfahren?\n" +
-				        "[1] Spiel fortsetzen\n[2] Spiel beenden");
-
-                 pause = true;
-				int choice = scanner.nextInt();
-				scanner.nextLine(); 
-
-				if (choice == 1) {
-				    System.out.println("Spiel wird fortgesetzt...");
-				    pause = false;
-				} else if (choice == 2) {
-				    stopGame();
-				} else {
-				    System.out.println("Falsche Eingabe! Versuche es nochmal.");
+	private boolean pause;
+	
+	private int generation;
+	
+	Scanner scanner = new Scanner(System.in);
+	
+	Input input = new Input();
+	
+	@Override
+	public void run() {
+		
+		while (true) {
+		
+			String choice = scanner.nextLine();
+			
+			pause = true;
+		
+			if (choice.equals("p") && pauseAt != generation) {
+				
+				System.out.println("Pause: \n[1] Spiel fortsetzen\n[2] Spiel beenden");
+				
+				choice = scanner.nextLine();
+				
+				if (choice.equals("1")) {
+					System.out.println("Spiel wird fortgesetzt.");
+				}else if (choice.equals("2")) {
+					System.out.println("Das Spiel wurde beendet.");
+					System.exit(0);
 				}
-            }
-        }
-    }
-
-    public void stopGame() {
-        System.out.println("Das Spiel wurde beendet!");
-        System.exit(0); // Java-Programm beenden
-    }
-
-	public boolean getPause() {
-		return pause;
+			
+			} else if (choice.equals("1") || choice.equals("2") || choice.equals("3")) {
+				if (choice.equals("1")) {
+					System.out.println("Spiel wird fortgesetzt.");
+				}
+				
+				if (choice.equals("2")) {
+					System.out.println("Das Spiel wurde beendet.");
+					System.exit(0);
+				}
+			
+				if (choice.equals("3")) {
+					int newPauseAt = 0;
+					
+					System.out.println("Zahl für Pause: ");
+					
+					while (newPauseAt <= generation && newPauseAt <= pauseAt) {
+						newPauseAt = scanner.nextInt();
+					}
+					
+					pauseAt = newPauseAt;
+				}
+				
+			}
+			
+			pause = false;
+		}
 	}
-
-
-    
+	
+	public int getPauseAt() {
+		return this.pauseAt;
+	}
+	public void setPauseAt(int pauseAt) {
+		this.pauseAt = pauseAt;
+	}
+	
+	public boolean getPause() {
+		return this.pause;
+	}
+	public void setPause(boolean pause) {
+		this.pause = pause;
+	}
+	
+	public int getGeneration() {
+		return this.generation;
+	}
+	public void setGeneration(int generation) {
+		this.generation = generation;
+	}
 }
